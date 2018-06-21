@@ -1,0 +1,44 @@
+version: '3'
+services:
+  npm-sum-service:
+    image: "selaworkshops/sum-service"
+    container_name: sum-service
+    restart: always
+    ports:
+     - "3001:3000"
+    networks:
+     - "npm-microservices"
+  npm-subtraction-service:
+    image: "selaworkshops/subtraction-service"
+    container_name: subtraction-service
+    restart: always
+    ports:
+     - "3002:3000"
+    networks:
+     - "npm-microservices"
+  npm-multiplication-service:
+    image: "selaworkshops/multiplication-service"
+    container_name: multiplication-service
+    restart: always
+    ports:
+     - "3003:3000"
+    networks:
+     - "npm-microservices"
+  npm-division-service:
+    image: "selaworkshops/division-service"
+    container_name: division-service
+    restart: always
+    ports:
+     - "3004:3000"
+    networks:
+     - "npm-microservices"
+  ui-service:
+    image: "selaworkshops/ui-service"
+    container_name: ui-service
+    restart: always
+    ports:
+     - "3000:3000"
+    networks:
+     - "npm-microservices"
+networks:
+  npm-microservices:
